@@ -4,27 +4,7 @@
  * License: MIT
  */
 (function (root, factory) {
-  // AMD
-  if (typeof define === 'function' && define.amd) {
-    define(['angular'], function (angular) {
-      return factory(root, angular, root.Intercom);
-    });
-  }
-  // Node.js
-  else if (typeof exports === 'object') {
-    // Optional require in the intercom
-    var intercom = null;
-    try {
-      intercom = require('intercom')
-    } catch (error) {
-
-    }
-    module.exports = factory({}, require('angular'), intercom);
-  }
-  // Angular
-  else if (angular) {
-    factory(root, root.angular, root.Intercom);
-  }
+  factory(root, root.angular, root.Intercom);
 }(this, function (global, angular, Intercom) {
   'use strict';
   if (Intercom && global && !global.Intercom) { global.Intercom = Intercom; }
